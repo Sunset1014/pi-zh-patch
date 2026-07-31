@@ -1,0 +1,27 @@
+{
+  "modes/interactive/theme/theme.js": {
+    "`Invalid color value: ${color}`": "`无效的颜色值：${color}`",
+    "`Invalid hex color: ${hex}`": "`无效的十六进制颜色：${hex}`",
+    "`Unknown theme background color: ${color}`": "`未知的主题背景色：${color}`",
+    "`Unknown theme color: ${color}`": "`未知的主题颜色：${color}`",
+    "\"no terminal background hint found\"": "\"未找到终端背景提示\"",
+    "\"terminal background\"": "\"终端背景\"",
+    "\"Theme not initialized. Call initTheme() first.\"": "\"主题未初始化。请先调用 initTheme()。\"",
+    "`Failed to parse theme ${label}: ${error}`": "`解析主题 ${label} 失败：${error}`",
+    "`Invalid theme \"${label}\":\\n`": "`无效的主题 \"${label}\"：\\n`",
+    "`Invalid theme name \"${name}\": theme names cannot contain \"/\" because it is reserved for automatic light/dark theme settings.`": "`无效的主题名称 \"${name}\"：主题名称不能包含 \"/\"，因为该字符保留用于自动浅色/深色主题设置。`",
+    "`Theme \"${name}\" does not have a source path for export`": "`主题 \"${name}\" 没有用于导出的源路径`",
+    "`Theme not found: ${name}`": "`未找到主题：${name}`",
+    "`Circular variable reference detected: ${value}`": "`检测到循环变量引用：${value}`",
+    "`Variable reference not found: ${value}`": "`未找到变量引用：${value}`",
+    "`background color index ${bg}`": "`背景色索引 ${bg}`",
+    "`OSC 11 background rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`": "`OSC 11 背景 rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`"
+  },
+  "modes/interactive/theme/theme-controller.js": {
+    "\"<in-memory>\"": "\"<内存中>\"",
+    "`Failed to load theme \"${themeName}\": ${result.error}\\nFell back to dark theme.`": "`加载主题 \"${themeName}\" 失败：${result.error}\\n已回退到深色主题。`"
+  },
+  "modes/interactive/external-editor.js": {
+    "`Launching external editor: ${options.command}\\nPi will resume when the editor exits.\\n`": "`正在启动外部编辑器：${options.command}\\n编辑器退出后 Pi 将自动继续。\\n`"
+  }
+}

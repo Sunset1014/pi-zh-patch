@@ -1,0 +1,74 @@
+{
+  "main.js": {
+    "\"Error: \"": "\"错误：\"",
+    "\"Warning: \"": "\"警告：\"",
+    "\"Failed to parse auth command\"": "\"解析认证命令失败\"",
+    "\"Failed to resolve credential\"": "\"解析凭据失败\"",
+    "\"Fork this session into current directory?\"": "\"将此会话分叉到当前目录？\"",
+    "\"Aborted.\"": "\"已中止。\"",
+    "\"No session selected\"": "\"未选择会话\"",
+    "\"Continue\"": "\"继续\"",
+    "\"Cancel\"": "\"取消\"",
+    "\"Failed to export session\"": "\"导出会话失败\"",
+    "\"Error: @file arguments are not supported in RPC mode\"": "\"错误：RPC 模式下不支持 @file 参数\"",
+    "\"Error: --name requires a non-empty value\"": "\"错误：--name 需要非空值\"",
+    "\"Error: PI_STARTUP_BENCHMARK only supports interactive mode\"": "\"错误：PI_STARTUP_BENCHMARK 仅支持交互模式\"",
+    "`No session found matching '${resolved.arg}'`": "`未找到匹配 '${resolved.arg}' 的会话`",
+    "`Session found in different project: ${resolved.cwd}`": "`会话位于其他项目中：${resolved.cwd}`",
+    "`Warning: No project session found with id '${parsed.sessionId}'; creating a new session with that id.`": "`警告：未找到 id 为 '${parsed.sessionId}' 的项目会话；将使用该 id 创建新会话。`",
+    "`${d.type === \"error\" ? \"Error\" : \"Warning\"}: ${d.message}`": "`${d.type === \"error\" ? \"错误\" : \"警告\"}：${d.message}`"
+  },
+  "cli/file-processor.js": {
+    "`Error: Could not read file ${absolutePath}: ${message}`": "`错误：无法读取文件 ${absolutePath}：${message}`",
+    "`Error: File not found: ${absolutePath}`": "`错误：文件未找到：${absolutePath}`"
+  },
+  "cli/credential-print.js": {
+    "\"Credential printing requires --model <model>\"": "\"打印凭据需要 --model <model>\"",
+    "\"Credential printing reads configured credentials; --api-key is not supported\"": "\"打印凭据读取已配置的凭据；不支持 --api-key\"",
+    "\"Credential printing only accepts --provider and --model\"": "\"打印凭据仅接受 --provider 和 --model\"",
+    "\"Unable to resolve the requested provider/model\"": "\"无法解析请求的提供商/模型\"",
+    "`No usable ${kind === \"api_key\" ? \"API key\" : \"OAuth bearer token\"} is configured`": "`未配置可用的${kind === \"api_key\" ? \"API 密钥\" : \"OAuth 载体令牌\"}`",
+    "`Provider \"${providerId}\" is configured with OAuth, not an API key`": "`提供商 \"${providerId}\" 配置的是 OAuth，而非 API 密钥`",
+    "`Provider \"${providerId}\" is not configured with an OAuth bearer token`": "`提供商 \"${providerId}\" 未配置 OAuth 载体令牌`",
+    "`Model \"${args.model}\" has multiple configured providers (${credentials.map(({ providerId }) => providerId).join(\", \")}). Specify --provider.`": "`模型 \"${args.model}\" 配置了多个提供商（${credentials.map(({ providerId }) => providerId).join(\", \")}）。请指定 --provider。`",
+    "`Model \"${args.model}\" not found. Use --list-models to see available models.`": "`未找到模型 \"${args.model}\"。使用 --list-models 查看可用模型。`",
+    "`Unknown auth command \"${args[1] ?? \"\"}\". Use \"pi auth print-api-key\" or \"pi auth print-bearer-token\".`": "`未知的认证命令 \"${args[1] ?? \"\"}\"。请使用 \"pi auth print-api-key\" 或 \"pi auth print-bearer-token\"。`"
+  },
+  "cli/list-models.js": {
+    "`No models matching \"${searchPattern}\"`": "`没有匹配 \"${searchPattern}\" 的模型`",
+    "`Warning: errors loading models.json:\\n${loadError}`": "`警告：加载 models.json 出错：\\n${loadError}`"
+  },
+  "cli/args.js": {
+    "`Unknown option: ${arg}`": "`未知选项：${arg}`",
+    "`Invalid thinking level \"${level}\". Valid values: ${VALID_THINKING_LEVELS.join(\", \")}`": "`无效的思考等级 \"${level}\"。有效值：${VALID_THINKING_LEVELS.join(\", \")}`"
+  },
+  "package-manager-cli.js": {
+    "\"Model catalog refresh timed out.\"": "\"模型目录刷新超时。\"",
+    "\"Model catalogs refreshed\"": "\"模型目录已刷新\"",
+    "\"If pnpm reports missing package versions, its cached registry metadata may be stale.\"": "\"如果 pnpm 报告缺少包版本，可能是其缓存的注册表元数据已过期。\"",
+    "\"Update note\"": "\"更新说明\"",
+    "\"Project is not trusted. Use --approve to modify local resource config.\"": "\"项目不受信任。使用 --approve 修改本地资源配置。\"",
+    "\"Unknown model catalog refresh error\"": "\"未知的模型目录刷新错误\"",
+    "\"Project is not trusted. Use --approve to modify local package config.\"": "\"项目不受信任。使用 --approve 修改本地包配置。\"",
+    "\"No packages installed.\"": "\"未安装任何包。\"",
+    "\"User packages:\"": "\"用户包：\"",
+    "\"Project packages:\"": "\"项目包：\"",
+    "\"Updated packages\"": "\"包已更新\""
+  },
+  "extensions/llama/ui.js": {
+    "\"llama.cpp models\"": "\"llama.cpp 模型\"",
+    "\"No GGUF models found\"": "\"未找到 GGUF 模型\"",
+    "\"Searching Hugging Face…\"": "\"正在搜索 Hugging Face…\"",
+    "\"Type at least 2 characters\"": "\"至少输入 2 个字符\""
+  },
+  "extensions/llama/index.js": {
+    "\"Unload all and load\"": "\"全部卸载并加载\"",
+    "\"Accept the access terms\"": "\"接受访问条款\"",
+    "\"Could not connect to the server.\"": "\"无法连接到服务器。\""
+  },
+  "extensions/llama/client.js": {
+    "\"Loading model\"": "\"正在加载模型\"",
+    "\"Downloading model\"": "\"正在下载模型\"",
+    "\"Model failed to load\"": "\"模型加载失败\""
+  }
+}

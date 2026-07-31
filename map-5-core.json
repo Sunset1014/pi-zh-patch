@@ -1,0 +1,142 @@
+{
+  "core/slash-commands.js": {
+    "\"Open settings menu\"": "\"打开设置菜单\"",
+    "\"Select model (opens selector UI)\"": "\"选择模型（打开选择器界面）\"",
+    "\"Enable/disable models for Ctrl+P cycling\"": "\"启用/禁用用于 Ctrl+P 循环切换的模型\"",
+    "\"Export session (HTML default, or specify path: .html/.jsonl)\"": "\"导出会话（默认为 HTML，或指定路径：.html/.jsonl）\"",
+    "\"Import and resume a session from a JSONL file\"": "\"从 JSONL 文件导入并恢复会话\"",
+    "\"Share session as a secret GitHub gist\"": "\"将会话分享为私密 GitHub gist\"",
+    "\"Copy last agent message to clipboard\"": "\"将最后一条代理消息复制到剪贴板\"",
+    "\"Set session display name\"": "\"设置会话显示名称\"",
+    "\"Show session info and stats\"": "\"显示会话信息和统计\"",
+    "\"Show changelog entries\"": "\"显示更新日志条目\"",
+    "\"Show all keyboard shortcuts\"": "\"显示所有键盘快捷键\"",
+    "\"Create a new fork from a previous user message\"": "\"从之前的用户消息创建新分叉\"",
+    "\"Duplicate the current session at the current position\"": "\"在当前位置复制当前会话\"",
+    "\"Navigate session tree (switch branches)\"": "\"浏览会话树（切换分支）\"",
+    "\"Save project trust decision for future sessions\"": "\"为将来的会话保存项目信任决策\"",
+    "\"Configure provider authentication\"": "\"配置提供商认证\"",
+    "\"Remove provider authentication\"": "\"移除提供商认证\"",
+    "\"Start a new session\"": "\"开始新会话\"",
+    "\"Manually compact the session context\"": "\"手动压缩会话上下文\"",
+    "\"Resume a different session\"": "\"恢复其他会话\"",
+    "\"Reload keybindings, extensions, skills, prompts, themes, and context files\"": "\"重新加载按键绑定、扩展、技能、提示模板、主题和上下文文件\"",
+    "`Quit ${APP_NAME}`": "`退出 ${APP_NAME}`"
+  },
+  "core/keybindings.js": {
+    "\"Cancel or abort\"": "\"取消或中止\"",
+    "\"Clear editor\"": "\"清空编辑器\"",
+    "\"Exit when editor is empty\"": "\"编辑器为空时退出\"",
+    "\"Suspend to background\"": "\"挂起到后台\"",
+    "\"Cycle thinking level\"": "\"循环切换思考等级\"",
+    "\"Cycle to next model\"": "\"切换到下一个模型\"",
+    "\"Cycle to previous model\"": "\"切换到上一个模型\"",
+    "\"Open model selector\"": "\"打开模型选择器\"",
+    "\"Toggle tool output\"": "\"切换工具输出\"",
+    "\"Toggle thinking blocks\"": "\"切换思考块\"",
+    "\"Toggle named session filter\"": "\"切换已命名会话筛选\"",
+    "\"Open external editor\"": "\"打开外部编辑器\"",
+    "\"Copy message to clipboard\"": "\"复制消息到剪贴板\"",
+    "\"Queue follow-up message\"": "\"排队后续消息\"",
+    "\"Restore queued messages\"": "\"恢复排队消息\"",
+    "\"Paste image from clipboard (text fallback)\"": "\"从剪贴板粘贴图片（文本回退）\"",
+    "\"Start a new session\"": "\"开始新会话\"",
+    "\"Open session tree\"": "\"打开会话树\"",
+    "\"Fork current session\"": "\"分叉当前会话\"",
+    "\"Resume a session\"": "\"恢复会话\"",
+    "\"Fold tree branch or move up\"": "\"折叠树分支或向上移动\"",
+    "\"Unfold tree branch or move down\"": "\"展开树分支或向下移动\"",
+    "\"Edit tree label\"": "\"编辑树标签\"",
+    "\"Toggle tree label timestamps\"": "\"切换树标签时间戳\"",
+    "\"Toggle session path display\"": "\"切换会话路径显示\"",
+    "\"Toggle session sort mode\"": "\"切换会话排序方式\"",
+    "\"Rename session\"": "\"重命名会话\"",
+    "\"Delete session\"": "\"删除会话\"",
+    "\"Delete session when query is empty\"": "\"查询为空时删除会话\"",
+    "\"Save model selection\"": "\"保存模型选择\"",
+    "\"Enable all models\"": "\"启用所有模型\"",
+    "\"Clear all models\"": "\"清除所有模型\"",
+    "\"Toggle all models for provider\"": "\"切换提供商的所有模型\"",
+    "\"Move model up in order\"": "\"上移模型顺序\"",
+    "\"Move model down in order\"": "\"下移模型顺序\"",
+    "\"Tree filter: default view\"": "\"树筛选：默认视图\"",
+    "\"Tree filter: hide tool results\"": "\"树筛选：隐藏工具结果\"",
+    "\"Tree filter: user messages only\"": "\"树筛选：仅用户消息\"",
+    "\"Tree filter: labeled entries only\"": "\"树筛选：仅带标签的条目\"",
+    "\"Tree filter: show all entries\"": "\"树筛选：显示所有条目\"",
+    "\"Tree filter: cycle forward\"": "\"树筛选：向前循环\"",
+    "\"Tree filter: cycle backward\"": "\"树筛选：向后循环\""
+  },
+  "core/trust-manager.js": {
+    "\"Trust\"": "\"信任\"",
+    "`Trust parent folder (${parentPath})`": "`信任父文件夹（${parentPath}）`",
+    "\"Trust (this session only)\"": "\"信任（仅当前会话）\"",
+    "\"Do not trust\"": "\"不信任\"",
+    "\"Do not trust (this session only)\"": "\"不信任（仅当前会话）\""
+  },
+  "core/agent-session.js": {
+    "\"Agent is already processing. Specify streamingBehavior ('steer' or 'followUp') to queue the message.\"": "\"代理正在处理中。请指定 streamingBehavior（'steer' 或 'followUp'）来排队消息。\"",
+    "\"Already compacted\"": "\"已压缩\"",
+    "\"compaction failed\"": "\"压缩失败\"",
+    "\"Context overflow recovery failed after one compact-and-retry attempt. Try reducing context or switching to a larger-context model.\"": "\"一次压缩并重试后，上下文溢出恢复仍失败。请尝试减少上下文或切换到上下文更大的模型。\"",
+    "`Credentials may have expired or network is unavailable. `": "`凭据可能已过期或网络不可用。 `"
+  },
+  "core/agent-session-runtime.js": {
+    "\"Invalid entry ID for forking\"": "\"无效的分叉条目 ID\""
+  },
+  "core/auth-storage.js": {
+    "\"Auth storage lock was compromised\"": "\"认证存储锁被破坏\""
+  },
+  "core/model-registry.js": {
+    "`No API key found for \"${model.provider}\"`": "`未找到 \"${model.provider}\" 的 API 密钥`",
+    "\"authHeader requires a resolved API key\"": "\"authHeader 需要已解析的 API 密钥\""
+  },
+  "core/provider-composer.js": {
+    "\"configured API key\"": "\"已配置的 API 密钥\"",
+    "\"stored credential\"": "\"已存储的凭据\"",
+    "\"API key\"": "\"API 密钥\"",
+    "`model \"${model.provider}/${model.id}\"`": "`模型 \"${model.provider}/${model.id}\"`",
+    "`provider \"${providerId}\"`": "`提供商 \"${providerId}\"`",
+    "`Provider ${providerId}, model ${definition.id}: no \"api\" specified. Set at provider or model level.`": "`提供商 ${providerId} 的模型 ${definition.id}：未指定 \"api\"。请在提供商或模型级别设置。`",
+    "`Provider ${providerId}: \"baseUrl\" is required when defining custom models.`": "`提供商 ${providerId}：定义自定义模型时必须提供 \"baseUrl\"。`"
+  },
+  "core/session-manager.js": {
+    "`Entry ${branchFromId} not found`": "`未找到条目 ${branchFromId}`",
+    "`Entry ${targetId} not found`": "`未找到条目 ${targetId}`"
+  },
+  "core/tools/edit.js,core/tools/find.js,core/tools/grep.js,core/tools/ls.js,core/tools/read.js,core/tools/write.js": {
+    "\"Operation aborted\"": "\"操作已中止\""
+  },
+  "core/tools/find.js,core/tools/grep.js": {
+    "`Path not found: ${searchPath}`": "`路径未找到：${searchPath}`"
+  },
+  "core/tools/edit-diff.js,core/tools/edit.js": {
+    "`Could not edit file: ${path}. ${errorMessage}.`": "`无法编辑文件：${path}。${errorMessage}。`",
+    "`Error code: ${error.code}`": "`错误代码：${error.code}`"
+  },
+  "core/tools/index.js": {
+    "`Unknown tool name: ${toolName}`": "`未知的工具名称：${toolName}`"
+  },
+  "core/tools/bash.js": {
+    "\"Command aborted\"": "\"命令已中止\""
+  },
+  "core/export-html/index.js": {
+    "\"Cannot export in-memory session to HTML\"": "\"无法将内存中的会话导出为 HTML\""
+  },
+  "core/usage-totals.js": {
+    "\"Tools/summaries\"": "\"工具/摘要\""
+  },
+  "core/resource-loader.js": {
+    "\"append system prompt\"": "\"附加系统提示\""
+  },
+  "core/model-runtime.js": {
+    "\"configured provider\"": "\"已配置的提供商\""
+  },
+  "core/http-dispatcher.js": {
+    "\"30 sec\"": "\"30 秒\"",
+    "\"1 min\"": "\"1 分钟\"",
+    "\"2 min\"": "\"2 分钟\"",
+    "\"5 min\"": "\"5 分钟\"",
+    "`${timeoutMs / 1000} sec`": "`${timeoutMs / 1000} 秒`"
+  }
+}

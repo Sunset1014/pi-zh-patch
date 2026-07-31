@@ -1,0 +1,24 @@
+{
+  "package-manager-cli.js": {
+    "`error: ${APP_NAME} cannot self-update this installation.`": "`错误：${APP_NAME} 无法自行更新此安装。`",
+    "`If this keeps failing, run this command yourself: ${command.display}`": "`如果持续失败，请自行运行此命令：${command.display}`",
+    "`Run \\`pnpm store prune\\` and retry \\`${APP_NAME} update --self\\`.`": "`运行 \\`pnpm store prune\\` 后重试 \\`${APP_NAME} update --self\\`。`",
+    "`${APP_NAME} is already up to date (v${VERSION})`": "`${APP_NAME} 已是最新版本（v${VERSION}）`",
+    "`Updating ${APP_NAME} with ${command.display}...`": "`正在使用 ${command.display} 更新 ${APP_NAME}...`",
+    "`Unknown option ${arg} for \"config\".`": "`\"config\" 的未知选项 ${arg}。`",
+    "`Use \"${APP_NAME} --help\" or \"${CONFIG_COMMAND_USAGE}\".`": "`请使用 \"${APP_NAME} --help\" 或 \"${CONFIG_COMMAND_USAGE}\"。`",
+    "`Unexpected argument ${arg}.`": "`意外的参数 ${arg}。`",
+    "`Unknown option ${options.invalidOption} for \"${options.command}\".`": "`\"${options.command}\" 的未知选项 ${options.invalidOption}。`",
+    "`Use \"${APP_NAME} --help\" or \"${getPackageCommandUsage(options.command)}\".`": "`请使用 \"${APP_NAME} --help\" 或 \"${getPackageCommandUsage(options.command)}\"。`",
+    "`Missing value for ${options.missingOptionValue}.`": "`缺少 ${options.missingOptionValue} 的值。`",
+    "`Unexpected argument ${options.invalidArgument}.`": "`意外的参数 ${options.invalidArgument}。`",
+    "`Missing ${options.command} source.`": "`缺少 ${options.command} 源。`",
+    "`Installed ${source}`": "`已安装 ${source}`",
+    "`No matching package found for ${source}`": "`未找到匹配 ${source} 的包`",
+    "`Removed ${source}`": "`已移除 ${source}`",
+    "`Extensions are skipped. Run ${APP_NAME} update --extensions to update extensions.`": "`扩展被跳过。运行 ${APP_NAME} update --extensions 更新扩展。`",
+    "`Updated ${updateSource}`": "`已更新 ${updateSource}`",
+    "`Warning: ${warning}`": "`警告：${warning}`",
+    "`Error: ${message}`": "`错误：${message}`"
+  }
+}

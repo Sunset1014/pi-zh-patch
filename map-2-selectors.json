@@ -1,0 +1,205 @@
+{
+  "modes/interactive/components/tree-selector.js": {
+    "\"branch summary\"": "\"分支摘要\"",
+    "\" [+label time]\"": "\" [+标签时间]\"",
+    "\"label time\"": "\"标签时间\"",
+    "\"assistant: \"": "\"助手: \"",
+    "\"user: \"": "\"用户: \"",
+    "\"(aborted)\"": "\"(已中止)\"",
+    "\"(no content)\"": "\"(无内容)\"",
+    "\"(cleared)\"": "\"(已清除)\"",
+    "\"  Session Tree\"": "\"  会话树\"",
+    "\"Type to search:\"": "\"输入以搜索：\"",
+    "\"Label (empty to remove):\"": "\"标签（留空以移除）：\"",
+    "\"  No entries found\"": "\"  未找到条目\"",
+    "\"tool\"": "\"工具\"",
+    "`[compaction: ${tokens}k tokens]`": "`[压缩: ${tokens}k tokens]`",
+    "`[branch summary]: `": "`[分支摘要]: `",
+    "`[model: ${entry.modelId}]`": "`[模型: ${entry.modelId}]`",
+    "`[thinking: ${entry.thinkingLevel}]`": "`[思考: ${entry.thinkingLevel}]`",
+    "`[custom: ${entry.customType}]`": "`[自定义: ${entry.customType}]`",
+    "`[label: ${entry.label ?? \"(cleared)\"}]`": "`[标签: ${entry.label ?? \"(已清除)\"}]`",
+    "`[read: ${display}]`": "`[读取: ${display}]`",
+    "`[write: ${path}]`": "`[写入: ${path}]`",
+    "`[edit: ${path}]`": "`[编辑: ${path}]`",
+    "`[find: ${pattern} in ${path}]`": "`[查找: ${pattern} 于 ${path}]`",
+    "`[grep: /${pattern}/ in ${path}]`": "`[grep: /${pattern}/ 于 ${path}]`",
+    "`${indent}${keyHint(\"tui.select.confirm\", \"save\")}  ${keyHint(\"tui.select.cancel\", \"cancel\")}`": "`${indent}${keyHint(\"tui.select.confirm\", \"保存\")}  ${keyHint(\"tui.select.cancel\", \"取消\")}`"
+  },
+  "modes/interactive/components/session-selector.js": {
+    "\"Resume Session (Current Folder)\"": "\"恢复会话（当前文件夹）\"",
+    "\"Resume Session (All)\"": "\"恢复会话（全部）\"",
+    "\"Sort: \"": "\"排序：\"",
+    "\"Name: \"": "\"名称：\"",
+    "\"Threaded\"": "\"按线程\"",
+    "\"Recent\"": "\"最近\"",
+    "\"Fuzzy\"": "\"模糊\"",
+    "\"All\"": "\"全部\"",
+    "\"Named\"": "\"已命名\"",
+    "\"Cannot delete the currently active session\"": "\"无法删除当前活动会话\"",
+    "\"  No sessions found\"": "\"  未找到会话\"",
+    "\"  No sessions in current folder. Press Tab to view all.\"": "\"  当前文件夹中没有会话。按 Tab 查看全部。\"",
+    "\"Session deleted\"": "\"会话已删除\"",
+    "\"Session moved to trash\"": "\"会话已移至回收站\"",
+    "\"Rename Session\"": "\"重命名会话\"",
+    "\"Unknown error\"": "\"未知错误\"",
+    "`Delete session? ${keyHint(\"tui.select.confirm\", \"confirm\")} · ${keyHint(\"tui.select.cancel\", \"cancel\")}`": "`删除会话？${keyHint(\"tui.select.confirm\", \"确认\")} · ${keyHint(\"tui.select.cancel\", \"取消\")}`",
+    "`path ${pathState}`": "`路径 ${pathState}`",
+    "`  No named sessions found. Press ${toggleKey} to show all.`": "`  未找到已命名会话。按 ${toggleKey} 显示全部。`",
+    "`  No named sessions in current folder. Press ${toggleKey} to show all, or Tab to view all.`": "`  当前文件夹中没有已命名会话。按 ${toggleKey} 显示全部，或按 Tab 查看全部。`",
+    "`Failed to delete: ${errorMessage}`": "`删除失败：${errorMessage}`",
+    "`Failed to load sessions: ${message}`": "`加载会话失败：${message}`",
+    "`${keyText(\"tui.select.confirm\")} to save · ${keyText(\"tui.select.cancel\")} to cancel`": "`${keyText(\"tui.select.confirm\")} 保存 · ${keyText(\"tui.select.cancel\")} 取消`",
+    "`${theme.fg(\"accent\", \"◉ Current Folder\")}${theme.fg(\"muted\", \" | ○ All\")}`": "`${theme.fg(\"accent\", \"◉ 当前文件夹\")}${theme.fg(\"muted\", \" | ○ 全部\")}`",
+    "`${theme.fg(\"muted\", \"○ Current Folder | \")}${theme.fg(\"accent\", \"◉ All\")}`": "`${theme.fg(\"muted\", \"○ 当前文件夹 | \")}${theme.fg(\"accent\", \"◉ 全部\")}`"
+  },
+  "modes/interactive/components/config-selector.js": {
+    "\"Extensions\"": "\"扩展\"",
+    "\"Skills\"": "\"技能\"",
+    "\"Prompts\"": "\"提示模板\"",
+    "\"Themes\"": "\"主题\"",
+    "\"User settings\"": "\"用户设置\"",
+    "\"Project settings\"": "\"项目设置\"",
+    "\"Project Local Resources\"": "\"项目本地资源\"",
+    "\"Global Resources\"": "\"全局资源\"",
+    "\"  No resources found\"": "\"  未找到资源\"",
+    "\"switch mode\"": "\"切换模式\"",
+    "\"cycle inherit/+/-\"": "\"循环切换 继承/+/-\"",
+    "\"  inherited global\"": "\"  继承自全局\"",
+    "\" · inherited global\"": "\" · 继承自全局\"",
+    "`${CONFIG_DIR_NAME}/settings.json · inherited global resources are dimmed`": "`${CONFIG_DIR_NAME}/settings.json · 继承的全局资源以暗色显示`",
+    "`User (${formatBaseDir(metadata.baseDir)})`": "`用户 (${formatBaseDir(metadata.baseDir)})`",
+    "`Project (${formatBaseDir(metadata.baseDir)})`": "`项目 (${formatBaseDir(metadata.baseDir)})`",
+    "`User (${formatBaseDir(agentDir)})`": "`用户 (${formatBaseDir(agentDir)})`",
+    "`Project (${CONFIG_DIR_NAME}/)`": "`项目 (${CONFIG_DIR_NAME}/)`"
+  },
+  "modes/interactive/components/model-selector.js": {
+    "\"Refreshing model catalogs…\"": "\"正在刷新模型目录…\"",
+    "\"Only showing models from configured providers. Use /login to add providers.\"": "\"仅显示已配置提供商的模型。使用 /login 添加提供商。\"",
+    "\"Model refresh timed out; showing cached models.\"": "\"模型刷新超时；显示缓存的模型。\"",
+    "\"Model catalogs refreshed.\"": "\"模型目录已刷新。\"",
+    "\"  No matching models\"": "\"  没有匹配的模型\"",
+    "\" (all/scoped)\"": "\"(全部/限定)\"",
+    "`  Model Name: ${selected.model.name}`": "\"  模型名称：${selected.model.name}\"",
+    "`Could not refresh ${result.errors.keys().next().value}; showing cached models.`": "`无法刷新 ${result.errors.keys().next().value}；显示缓存的模型。`",
+    "`Could not refresh ${result.errors.size} model catalogs; showing cached models.`": "`无法刷新 ${result.errors.size} 个模型目录；显示缓存的模型。`",
+    "`${theme.fg(\"muted\", \"Scope: \")}${allText}${theme.fg(\"muted\", \" | \")}${scopedText}`": "`${theme.fg(\"muted\", \"范围：\")}${allText}${theme.fg(\"muted\", \" | \")}${scopedText}`"
+  },
+  "modes/interactive/components/scoped-models-selector.js": {
+    "\"Model Configuration\"": "\"模型配置\"",
+    "\"all enabled\"": "\"全部启用\"",
+    "\"  No matching models\"": "\"  没有匹配的模型\"",
+    "\"(unsaved)\"": "\"(未保存)\"",
+    "\" [unavailable]\"": "\" [不可用]\"",
+    "`${enabledCount}/${this.allIds.length} enabled${unavailableCount ? ` · ${unavailableCount} unavailable` : \"\"}`": "`${enabledCount}/${this.allIds.length} 已启用${unavailableCount ? ` · ${unavailableCount} 不可用` : \"\"}`",
+    "`${keyText(\"app.models.clearAll\")} clear`": "`${keyText(\"app.models.clearAll\")} 清除全部`",
+    "`${keyText(\"app.models.enableAll\")} all`": "`${keyText(\"app.models.enableAll\")} 全部启用`",
+    "`${keyText(\"app.models.reorderUp\")}/${keyText(\"app.models.reorderDown\")} reorder`": "`${keyText(\"app.models.reorderUp\")}/${keyText(\"app.models.reorderDown\")} 重新排序`",
+    "`${keyText(\"app.models.toggleProvider\")} provider`": "`${keyText(\"app.models.toggleProvider\")} 提供商`",
+    "`${keyText(\"app.models.save\")} save`": "`${keyText(\"app.models.save\")} 保存`",
+    "`${keyText(\"tui.select.confirm\")} toggle`": "`${keyText(\"tui.select.confirm\")} 切换`",
+    "`Session-only. ${keyText(\"app.models.save\")} to save to settings.`": "`仅限当前会话。按 ${keyText(\"app.models.save\")} 保存到设置。`",
+    "` : \"Model unavailable\"}`": "` : \"模型不可用\"}`"
+  },
+  "modes/interactive/components/user-message-selector.js": {
+    "\"Fork from Message\"": "\"从消息分叉\"",
+    "\"Select a user message to copy the active path up to that point into a new session\"": "\"选择一条用户消息，将该时间点之前的活动路径复制到新会话\"",
+    "\"  No user messages found\"": "\"  未找到用户消息\"",
+    "`  Message ${position} of ${this.messages.length}`": "`  第 ${position} 条消息，共 ${this.messages.length} 条`"
+  },
+  "modes/interactive/components/trust-selector.js": {
+    "\"Project trust\"": "\"项目信任\"",
+    "\"Always trust\"": "\"始终信任\"",
+    "\"Never trust\"": "\"从不信任\"",
+    "`Current session: ${options.projectTrusted ? \"trusted\" : \"untrusted\"}`": "`当前会话：${options.projectTrusted ? \"已信任\" : \"未信任\"}`",
+    "`${label} (inherited from ${decision.path})`": "`${label}（继承自 ${decision.path}）`",
+    "`${label} (${decision.path})`": "`${label}（${decision.path}）`",
+    "`Saved decision: ${formatDecision(this.trustOptions[0]?.savedPath, options.savedDecision)}`": "`已保存决策：${formatDecision(this.trustOptions[0]?.savedPath, options.savedDecision)}`"
+  },
+  "modes/interactive/components/oauth-selector.js": {
+    "\"subscription\"": "\"订阅\"",
+    "\"API key\"": "\"API 密钥\"",
+    "\"Select provider to configure:\"": "\"选择要配置的提供商：\"",
+    "\"Select provider to logout:\"": "\"选择要注销的提供商：\"",
+    "\"No providers available\"": "\"没有可用的提供商\"",
+    "\"No providers logged in. Use /login first.\"": "\"尚未登录任何提供商。请先使用 /login。\"",
+    "\"No matching providers\"": "\"没有匹配的提供商\"",
+    "\"subscription configured\"": "\"已配置订阅\"",
+    "\"API key configured\"": "\"已配置 API 密钥\"",
+    "\"stored credential\"": "\"已存储的凭据\"",
+    "\" • unconfigured\"": "\" • 未配置\"",
+    "\" ✓ configured\"": "\" ✓ 已配置\""
+  },
+  "modes/interactive/components/login-dialog.js": {
+    "`Login to ${providerName}`": "`登录 ${providerName}`",
+    "\"Login cancelled\"": "\"登录已取消\"",
+    "\"Cmd+click to open\"": "\"Cmd+点击打开\"",
+    "\"Ctrl+click to open\"": "\"Ctrl+点击打开\"",
+    "`(${keyHint(\"tui.select.cancel\", \"to cancel\")})`": "`(${keyHint(\"tui.select.cancel\", \"取消\")})`",
+    "`(${keyHint(\"tui.select.cancel\", \"to cancel,\")} ${keyHint(\"tui.select.confirm\", \"to submit\")})`": "`(${keyHint(\"tui.select.cancel\", \"取消，\")} ${keyHint(\"tui.select.confirm\", \"提交\")})`",
+    "`(${keyHint(\"tui.select.cancel\", \"to close\")})`": "`(${keyHint(\"tui.select.cancel\", \"关闭\")})`",
+    "`Enter code: ${info.userCode}`": "`输入代码：${info.userCode}`",
+    "`e.g., ${placeholder}`": "`例如：${placeholder}`"
+  },
+  "modes/interactive/components/session-selector-search.js": {
+    "\"Empty regex\"": "\"正则表达式为空\""
+  },
+  "modes/interactive/components/extension-editor.js": {
+    "`  ${keyHint(\"app.editor.external\", \"external editor\")}`": "`  ${keyHint(\"app.editor.external\", \"外部编辑器\")}`"
+  },
+  "modes/interactive/components/extension-input.js": {
+    "`${keyHint(\"tui.select.confirm\", \"submit\")}  ${keyHint(\"tui.select.cancel\", \"cancel\")}`": "`${keyHint(\"tui.select.confirm\", \"提交\")}  ${keyHint(\"tui.select.cancel\", \"取消\")}`"
+  },
+  "modes/interactive/components/compaction-summary-message.js": {
+    "`**Compacted from ${tokenStr} tokens**\\n\\n`": "`**已从 ${tokenStr} tokens 压缩**\\n\\n`",
+    "`Compacted from ${tokenStr} tokens (`": "`已从 ${tokenStr} tokens 压缩（`",
+    "\" to expand)\"": "\" 展开）\""
+  },
+  "modes/interactive/components/branch-summary-message.js": {
+    "\"**Branch Summary**\\n\\n\"": "\"**分支摘要**\\n\\n\"",
+    "\"Branch summary (\"": "\"分支摘要（\"",
+    "\" to expand)\"": "\" 展开）\""
+  },
+  "modes/interactive/components/skill-invocation-message.js": {
+    "` (${keyText(\"app.tools.expand\")} to expand)`": "`（按 ${keyText(\"app.tools.expand\")} 展开）`"
+  },
+  "modes/interactive/components/bash-execution.js": {
+    "`Running... (${keyText(\"tui.select.cancel\")} to cancel)`": "`运行中...（按 ${keyText(\"tui.select.cancel\")} 取消）`",
+    "`(exit ${this.exitCode})`": "`(退出码 ${this.exitCode})`",
+    "\"(cancelled)\"": "\"(已取消)\"",
+    "`Output truncated. Full output: ${this.fullOutputPath}`": "`输出已截断。完整输出：${this.fullOutputPath}`",
+    "`${theme.fg(\"muted\", `... ${hiddenLineCount} more lines (`)}${keyHint(\"app.tools.expand\", \"to expand\")}${theme.fg(\"muted\", \")\")}`": "`${theme.fg(\"muted\", `... 另有 ${hiddenLineCount} 行（`)}${keyHint(\"app.tools.expand\", \"展开\")}${theme.fg(\"muted\", \")\")}`",
+    "`${theme.fg(\"muted\", \"(\")}${keyHint(\"app.tools.expand\", \"to collapse\")}${theme.fg(\"muted\", \")\")}`": "`${theme.fg(\"muted\", \"(\")}${keyHint(\"app.tools.expand\", \"折叠\")}${theme.fg(\"muted\", \")\")}`"
+  },
+  "modes/interactive/components/assistant-message.js": {
+    "\"Thinking...\"": "\"思考中...\"",
+    "\"Operation aborted\"": "\"操作已中止\"",
+    "\"Request was aborted\"": "\"请求已中止\"",
+    "\"Unknown error\"": "\"未知错误\"",
+    "`Error: ${errorMsg}`": "`错误：${errorMsg}`",
+    "\"Error: Model stopped because it reached the maximum output token limit. The response may be incomplete.\"": "\"错误：模型因达到最大输出 token 上限而停止，响应可能不完整。\""
+  },
+  "modes/interactive/components/status-indicator.js": {
+    "`Retrying (${attempt}/${maxAttempts}) in ${seconds}s... (${keyText(\"app.interrupt\")} to cancel)`": "`正在重试（${attempt}/${maxAttempts}），${seconds} 秒后...（按 ${keyText(\"app.interrupt\")} 取消）`",
+    "`(${keyText(\"app.interrupt\")} to cancel)`": "`（按 ${keyText(\"app.interrupt\")} 取消）`",
+    "`Compacting context... ${cancelHint}`": "`正在压缩上下文... ${cancelHint}`",
+    "`${reason === \"overflow\" ? \"Context overflow detected, \" : \"\"}Auto-compacting... ${cancelHint}`": "`${reason === \"overflow\" ? \"检测到上下文溢出，\" : \"\"}正在自动压缩... ${cancelHint}`",
+    "`Summarizing branch... (${keyText(\"app.interrupt\")} to cancel)`": "`正在生成分支摘要...（按 ${keyText(\"app.interrupt\")} 取消）`"
+  },
+  "modes/interactive/components/footer.js": {
+    "\" (auto)\"": "\" (自动)\"",
+    "`${modelName} • thinking off`": "`${modelName} • 思考关闭`",
+    "\" (sub)\"": "\" (订阅)\""
+  },
+  "modes/interactive/components/daxnuts.js": {
+    "\"Free Kimi K2.5 via OpenCode Zen\"": "\"通过 OpenCode Zen 免费使用 Kimi K2.5\"",
+    "'\"Powered by daxnuts\"'": "'\"由 daxnuts 驱动\"'",
+    "\"Try OpenCode\"": "\"试试 OpenCode\""
+  },
+  "modes/interactive/components/earendil-announcement.js": {
+    "\"Read the blog post:\"": "\"阅读博客文章：\""
+  },
+  "modes/interactive/components/custom-entry.js": {
+    "`[${this.entry.customType}] renderer failed: ${message}`": "`[${this.entry.customType}] 渲染失败：${message}`"
+  }
+}

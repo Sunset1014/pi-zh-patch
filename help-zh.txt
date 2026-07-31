@@ -1,0 +1,177 @@
+console.log(`${chalk.bold(APP_NAME)} - 支持 read、bash、edit、write 工具的 AI 编码助手
+
+${chalk.bold("用法：")}
+  ${APP_NAME} [options] [@files...] [messages...]
+
+${chalk.bold("命令：")}
+  ${APP_NAME} install <source> [-l]     安装扩展源并添加到设置
+  ${APP_NAME} remove <source> [-l]      从设置中移除扩展源
+  ${APP_NAME} uninstall <source> [-l]   remove 的别名
+  ${APP_NAME} update [source|self|pi]   更新 pi、扩展或模型目录
+  ${APP_NAME} list                      列出设置中已安装的扩展
+  ${APP_NAME} config [-l]               打开 TUI 以启用/禁用包资源（Tab 切换范围）
+  ${APP_NAME} auth <command>            为外部客户端打印凭据
+  ${APP_NAME} <command> --help          显示 install/remove/uninstall/update/list/config/auth 的帮助
+
+${chalk.bold("选项：")}
+  --provider <name>              提供商名称（默认：google）
+  --model <pattern>              模型模式或 ID（支持 "provider/id" 和可选的 ":<thinking>"）
+  --api-key <key>                API 密钥（默认为环境变量）
+  --system-prompt <text>         系统提示（默认：编码助手提示）
+  --append-system-prompt <text>  将文本或文件内容附加到系统提示（可多次使用）
+  --mode <mode>                  输出模式：text（默认）、json 或 rpc
+  --print, -p                    非交互模式：处理提示后退出
+  --continue, -c                 继续之前的会话
+  --resume, -r                   选择一个会话以恢复
+  --session <path|id>            使用特定的会话文件或部分 UUID
+  --session-id <id>              使用精确的项目会话 ID，不存在则创建
+  --fork <path|id>               将特定会话文件或部分 UUID 分叉为新会话
+  --session-dir <dir>            会话存储和查找目录
+  --no-session                   不保存会话（临时会话）
+  --name, -n <name>              设置会话显示名称
+  --models <patterns>            用于 Ctrl+P 循环切换的逗号分隔模型模式
+                                 支持通配符（anthropic/*、*sonnet*）和模糊匹配
+  --no-tools, -nt                默认禁用所有工具（内置和扩展）
+  --no-builtin-tools, -nbt       默认禁用内置工具，但保留扩展/自定义工具
+  --tools, -t <tools>            逗号分隔的允许工具名称列表
+                                 适用于内置、扩展和自定义工具
+  --exclude-tools, -xt <tools>   逗号分隔的禁用工具名称列表
+                                 适用于内置、扩展和自定义工具
+  --thinking <level>             设置思考等级：off、minimal、low、medium、high、xhigh、max
+  --extension, -e <path>         加载扩展文件（可多次使用）
+  --no-extensions, -ne           禁用扩展发现（显式的 -e 路径仍然有效）
+  --skill <path>                 加载技能文件或目录（可多次使用）
+  --no-skills, -ns               禁用技能发现和加载
+  --prompt-template <path>       加载提示模板文件或目录（可多次使用）
+  --no-prompt-templates, -np     禁用提示模板发现和加载
+  --theme <path>                 加载主题文件或目录（可多次使用）
+  --no-themes                    禁用主题发现和加载
+  --no-context-files, -nc        禁用 AGENTS.md 和 CLAUDE.md 的发现和加载
+  --export <file>                将会话文件导出为 HTML 并退出
+  --list-models [search]         列出可用模型（可选模糊搜索）
+  --verbose                      强制详细启动（覆盖 quietStartup 设置）
+  --approve, -a                  本次运行信任项目本地文件
+  --no-approve, -na              本次运行忽略项目本地文件
+  --offline                      禁用启动网络操作（等同于 PI_OFFLINE=1）
+  --help, -h                     显示此帮助
+  --version, -v                  显示版本号
+
+扩展可以注册额外的标志（例如 plan-mode 扩展的 --plan）。${extensionFlagsText}
+
+${chalk.bold("示例：")}
+  # 为外部客户端打印提供商 API 密钥
+  ${APP_NAME} auth print-api-key --provider openai --model gpt-5.5
+
+  # 为外部客户端打印 OAuth 载体令牌（过期时自动刷新）
+  ${APP_NAME} auth print-bearer-token --provider openai-codex --model gpt-5.5
+
+  # 交互模式
+  ${APP_NAME}
+
+  # 带初始提示的交互模式
+  ${APP_NAME} "列出 src/ 中的所有 .ts 文件"
+
+  # 在初始消息中包含文件
+  ${APP_NAME} @prompt.md @image.png "天空是什么颜色？"
+
+  # 非交互模式（处理后退出）
+  ${APP_NAME} -p "列出 src/ 中的所有 .ts 文件"
+
+  # 多条消息（交互模式）
+  ${APP_NAME} "读取 package.json" "我们有哪些依赖？"
+
+  # 继续之前的会话
+  ${APP_NAME} --continue "我们之前讨论了什么？"
+
+  # 启动命名会话
+  ${APP_NAME} --name "重构认证模块"
+
+  # 使用不同模型
+  ${APP_NAME} --provider openai --model gpt-4o-mini "帮我重构这段代码"
+
+  # 使用带提供商前缀的模型（无需 --provider）
+  ${APP_NAME} --model openai/gpt-4o "帮我重构这段代码"
+
+  # 使用带思考等级简写的模型
+  ${APP_NAME} --model sonnet:high "解决这个复杂问题"
+
+  # 将模型循环切换限制为特定模型
+  ${APP_NAME} --models claude-sonnet,claude-haiku,gpt-4o
+
+  # 使用通配符模式限制到特定提供商
+  ${APP_NAME} --models "github-copilot/*"
+
+  # 使用固定思考等级循环切换模型
+  ${APP_NAME} --models sonnet:high,haiku:low
+
+  # 以特定思考等级启动
+  ${APP_NAME} --thinking high "解决这个复杂问题"
+
+  # 只读模式（无法修改文件）
+  ${APP_NAME} --tools read,grep,find,ls -p "审查 src/ 中的代码"
+
+  # 禁用某个工具，同时保留其他工具
+  ${APP_NAME} --exclude-tools ask_question
+
+  # 将会话文件导出为 HTML
+  ${APP_NAME} --export ~/${CONFIG_DIR_NAME}/agent/sessions/--path--/session.jsonl
+  ${APP_NAME} --export session.jsonl output.html
+
+${chalk.bold("环境变量：")}
+  ANTHROPIC_AUTH_TOKEN             - Anthropic 载体认证令牌
+  ANTHROPIC_API_KEY                - Anthropic Claude API 密钥
+  ANTHROPIC_OAUTH_TOKEN            - Anthropic OAuth 令牌（API 密钥的替代）
+  ANT_LING_API_KEY                 - Ant Ling API 密钥
+  OPENAI_API_KEY                   - OpenAI GPT API 密钥
+  AZURE_OPENAI_API_KEY             - Azure OpenAI API 密钥
+  AZURE_OPENAI_BASE_URL            - Azure OpenAI/Cognitive Services 基础 URL（例如 https://{resource}.openai.azure.com）
+  AZURE_OPENAI_RESOURCE_NAME       - Azure OpenAI 资源名称（基础 URL 的替代）
+  AZURE_OPENAI_API_VERSION         - Azure OpenAI API 版本（默认：v1）
+  AZURE_OPENAI_DEPLOYMENT_NAME_MAP - Azure OpenAI model=deployment 映射（逗号分隔）
+  DEEPSEEK_API_KEY                 - DeepSeek API 密钥
+  NVIDIA_API_KEY                   - NVIDIA NIM API 密钥
+  GEMINI_API_KEY                   - Google Gemini API 密钥
+  GROQ_API_KEY                     - Groq API 密钥
+  CEREBRAS_API_KEY                 - Cerebras API 密钥
+  XAI_API_KEY                      - xAI Grok API 密钥
+  FIREWORKS_API_KEY                - Fireworks API 密钥
+  TOGETHER_API_KEY                 - Together AI API 密钥
+  OPENROUTER_API_KEY               - OpenRouter API 密钥
+  AI_GATEWAY_API_KEY               - Vercel AI Gateway API 密钥
+  ZAI_API_KEY                      - ZAI Coding Plan API 密钥（全球）
+  ZAI_CODING_CN_API_KEY            - ZAI Coding Plan API 密钥（中国）
+  MISTRAL_API_KEY                  - Mistral API 密钥
+  MINIMAX_API_KEY                  - MiniMax API 密钥
+  MOONSHOT_API_KEY                 - Moonshot AI API 密钥
+  OPENCODE_API_KEY                 - OpenCode Zen/OpenCode Go API 密钥
+  KIMI_API_KEY                     - Kimi For Coding API 密钥
+  CLOUDFLARE_API_KEY               - Cloudflare API 令牌（Workers AI 和 AI Gateway）
+  CLOUDFLARE_ACCOUNT_ID            - Cloudflare 账户 ID（两者都需要）
+  CLOUDFLARE_GATEWAY_ID            - Cloudflare AI Gateway slug（AI Gateway 必需）
+  QWEN_TOKEN_PLAN_API_KEY          - Qwen Token Plan API 密钥（国际区）
+  QWEN_TOKEN_PLAN_CN_API_KEY       - Qwen Token Plan API 密钥（中国区）
+  XIAOMI_API_KEY                   - 小米 MiMo API 密钥（api.xiaomimimo.com 计费）
+  XIAOMI_TOKEN_PLAN_CN_API_KEY     - 小米 MiMo Token Plan API 密钥（中国区）
+  XIAOMI_TOKEN_PLAN_AMS_API_KEY    - 小米 MiMo Token Plan API 密钥（阿姆斯特丹区）
+  XIAOMI_TOKEN_PLAN_SGP_API_KEY    - 小米 MiMo Token Plan API 密钥（新加坡区）
+  AWS_PROFILE                      - Amazon Bedrock 的 AWS 配置文件
+  AWS_ACCESS_KEY_ID                - Amazon Bedrock 的 AWS 访问密钥
+  AWS_SECRET_ACCESS_KEY            - Amazon Bedrock 的 AWS 密钥
+  AWS_BEARER_TOKEN_BEDROCK         - Bedrock API 密钥（载体令牌）
+  AWS_REGION                       - Amazon Bedrock 的 AWS 区域（例如 us-east-1）
+  ${ENV_AGENT_DIR.padEnd(32)} - 配置目录（默认：~/${CONFIG_DIR_NAME}/agent）
+  ${ENV_SESSION_DIR.padEnd(32)} - 会话存储目录（可由 --session-dir 覆盖）
+  PI_PACKAGE_DIR                   - 覆盖包目录（用于 Nix/Guix store 路径）
+  PI_OFFLINE                       - 设为 1/true/yes 时禁用启动网络操作
+  PI_TELEMETRY                     - 设为 1/true/yes 或 0/false/no 时覆盖安装遥测
+  PI_SHARE_VIEWER_URL              - /share 命令的基础 URL（默认：https://pi.dev/session/）
+
+${chalk.bold("内置工具名称：")}
+  read   - 读取文件内容
+  bash   - 执行 bash 命令
+  edit   - 使用查找/替换编辑文件
+  write  - 写入文件（创建/覆盖）
+  grep   - 搜索文件内容（只读，默认关闭）
+  find   - 按通配符模式查找文件（只读，默认关闭）
+  ls     - 列出目录内容（只读，默认关闭）
+`);

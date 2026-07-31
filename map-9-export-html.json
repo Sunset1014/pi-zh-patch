@@ -1,0 +1,21 @@
+{
+  "core/export-html/template.js": {
+    "parts.push('branch summary', entry.summary);": "parts.push('分支摘要', entry.summary);",
+    "parts.push('compaction');": "parts.push('压缩');",
+    "parts.push('model', entry.modelId);": "parts.push('模型', entry.modelId);",
+    "parts.push('thinking', entry.thinkingLevel);": "parts.push('思考', entry.thinkingLevel);",
+    "console.error('Failed to copy:', err);": "console.error('复制失败：', err);",
+    "`<span class=\"tree-compaction\">[compaction: ${Math.round(entry.tokensBefore/1000)}k tokens]</span>`": "`<span class=\"tree-compaction\">[压缩: ${Math.round(entry.tokensBefore/1000)}k tokens]</span>`",
+    "`<span class=\"tree-branch-summary\">[branch summary]:</span>`": "`<span class=\"tree-branch-summary\">[分支摘要]:</span>`",
+    "`<span class=\"tree-role-skill\">skill:</span>": "`<span class=\"tree-role-skill\">技能:</span>",
+    "`<span class=\"tree-role-user\">user:</span>": "`<span class=\"tree-role-user\">用户:</span>",
+    "`<span class=\"tree-role-assistant\">assistant:</span>": "`<span class=\"tree-role-assistant\">助手:</span>",
+    "`<span class=\"tree-muted\">(aborted)</span>": "`<span class=\"tree-muted\">(已中止)</span>",
+    "`<span class=\"tree-muted\">(no text)</span>": "`<span class=\"tree-muted\">(无文本)</span>",
+    "`<span class=\"tree-muted\">[model: ${escapeHtml(entry.modelId)}]</span>`": "`<span class=\"tree-muted\">[模型: ${escapeHtml(entry.modelId)}]</span>`",
+    "`<span class=\"tree-muted\">[thinking: ${escapeHtml(entry.thinkingLevel)}]</span>`": "`<span class=\"tree-muted\">[思考: ${escapeHtml(entry.thinkingLevel)}]</span>`"
+  },
+  "core/export-html/index.js": {
+    "\"Nothing to export yet - start a conversation first\"": "\"还没有可导出的内容——请先开始对话\""
+  }
+}

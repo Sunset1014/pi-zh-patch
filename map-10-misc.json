@@ -1,0 +1,166 @@
+{
+  "modes/interactive/interactive-mode.js": {
+    "\"Login cancelled\"": "\"登录已取消\"",
+    "\"Import cancelled\"": "\"导入已取消\"",
+    "\"No summary\"": "\"无摘要\"",
+    "\"Summarize with custom prompt\"": "\"使用自定义提示生成摘要\"",
+    "\"Custom summarization instructions\"": "\"自定义摘要指令\"",
+    "\"Failed to import session\"": "\"导入会话失败\"",
+    "\"Failed to resume session\"": "\"恢复会话失败\"",
+    "\"GitHub CLI is not logged in. Run 'gh auth login' first.\"": "\"GitHub CLI 未登录。请先运行 'gh auth login'。\"",
+    "\"Import session\"": "\"导入会话\"",
+    "\"No API key providers available.\"": "\"没有可用的 API 密钥提供商。\"",
+    "\"No login methods available.\"": "\"没有可用的登录方式。\"",
+    "\"No login providers available.\"": "\"没有可用的登录提供商。\"",
+    "\"No subscription providers available.\"": "\"没有可用的订阅提供商。\"",
+    "\"Reloaded keybindings, extensions, skills, prompts, themes, and context files; saved project trust\"": "\"已重新加载按键绑定、扩展、技能、提示模板、主题和上下文文件；已保存项目信任\"",
+    "\"Reloaded keybindings, extensions, skills, prompts, themes, and context files\"": "\"已重新加载按键绑定、扩展、技能、提示模板、主题和上下文文件\"",
+    "\"Reloading keybindings, extensions, skills, prompts, themes, and context files...\"": "\"正在重新加载按键绑定、扩展、技能、提示模板、主题和上下文文件...\"",
+    "\"Resume cancelled\"": "\"恢复已取消\"",
+    "\"Resumed session in current cwd\"": "\"已在当前目录恢复会话\"",
+    "\"Resumed session\"": "\"已恢复会话\"",
+    "\"See:\"": "\"参见：\"",
+    "\"Select authentication method:\"": "\"选择认证方式：\"",
+    "\"Selected entry has no text to copy\"": "\"所选条目没有可复制的文本\"",
+    "\"Sign in with an account\"": "\"使用账户登录\"",
+    "\"Sign in with an API key\"": "\"使用 API 密钥登录\"",
+    "\"Summarize branch?\"": "\"生成分支摘要？\"",
+    "\"Usage: /import <path.jsonl>\"": "\"用法：/import <path.jsonl>\"",
+    "\"Wait for compaction to finish before reloading.\"": "\"请等待压缩完成后再重新加载。\"",
+    "\"Wait for the current response to finish before reloading.\"": "\"请等待当前响应完成后再重新加载。\"",
+    "\"Waiting for authentication...\"": "\"正在等待认证...\"",
+    "\"You can also use an AWS profile, IAM keys, or role-based credentials.\"": "\"你也可以使用 AWS 配置文件、IAM 密钥或基于角色的凭据。\""
+  },
+  "core/agent-session.js": {
+    "\"Wait for the current response to finish before navigating the session tree.\"": "\"请等待当前响应完成后再浏览会话树。\"",
+    "\"Retry cancelled\"": "\"重试已取消\"",
+    "\"No model available for summarization\"": "\"没有可用于生成摘要的模型\"",
+    "\"Nothing to compact (session too small)\"": "\"没有可压缩的内容（会话太小）\"",
+    "\"Unknown error\"": "\"未知错误\""
+  },
+  "core/agent-session-runtime.js": {
+    "\"Failed to create forked session\"": "\"创建分叉会话失败\"",
+    "\"Persisted session is missing a session file\"": "\"持久化会话缺少会话文件\"",
+    "\"This session has not been saved yet. Wait for the first assistant response before cloning or forking it.\"": "\"此会话尚未保存。请等待第一条助手响应后再克隆或分叉。\""
+  },
+  "core/auth-storage.js": {
+    "\"Failed to acquire auth storage lock\"": "\"获取认证存储锁失败\""
+  },
+  "core/settings-manager.js": {
+    "\"Failed to acquire settings lock\"": "\"获取设置锁失败\"",
+    "\"Project is not trusted; refusing to write project settings\"": "\"项目不受信任；拒绝写入项目设置\""
+  },
+  "core/trust-manager.js": {
+    "\"Failed to acquire trust store lock\"": "\"获取信任存储锁失败\""
+  },
+  "core/extensions/loader.js": {
+    "\"Extension runtime not initialized. Action methods cannot be called during extension loading.\"": "\"扩展运行时未初始化。扩展加载期间无法调用操作方法。\"",
+    "\"Extension runtime not initialized\"": "\"扩展运行时未初始化\""
+  },
+  "core/extensions/loader.js,core/model-registry.js": {
+    "\"Provider config is required when registering by name\"": "\"按名称注册时需要提供商配置\""
+  },
+  "core/package-manager.js": {
+    "\"Empty response from npm view\"": "\"npm view 返回空响应\"",
+    "\"Failed to determine remote HEAD\"": "\"无法确定远程 HEAD\"",
+    "\"Invalid npmCommand: first array entry must be a non-empty command\"": "\"无效的 npmCommand：数组的第一个元素必须是非空命令\"",
+    "\"Missing git install root\"": "\"缺少 git 安装根目录\"",
+    "\"Missing upstream branch name\"": "\"缺少上游分支名称\"",
+    "\"Project is not trusted; refusing to access project package storage\"": "\"项目不受信任；拒绝访问项目包存储\"",
+    "\"Unexpected response from npm view\"": "\"npm view 返回意外响应\""
+  },
+  "core/compaction/compaction.js": {
+    "\"First kept entry has no UUID - session may need migration\"": "\"保留的第一个条目没有 UUID——会话可能需要迁移\"",
+    "\"No prior history.\"": "\"没有先前历史。\"",
+    "`Summarization failed: ${response.errorMessage || \"Unknown error\"}`": "`生成摘要失败：${response.errorMessage || \"未知错误\"}`",
+    "`Turn prefix summarization failed: ${response.errorMessage || \"Unknown error\"}`": "`回合前缀摘要生成失败：${response.errorMessage || \"未知错误\"}`"
+  },
+  "core/compaction/branch-summarization.js": {
+    "\"No content to summarize\"": "\"没有可生成摘要的内容\"",
+    "\"No summary generated\"": "\"未生成摘要\"",
+    "\"Summarization failed\"": "\"生成摘要失败\""
+  },
+  "core/model-config.js": {
+    "\"Unknown schema error\"": "\"未知的模式错误\""
+  },
+  "core/model-resolver.js": {
+    "\"No models available. Check your installation or add models to models.json.\"": "\"没有可用模型。请检查安装或向 models.json 添加模型。\""
+  },
+  "core/model-runtime.js": {
+    "\"Provider id must not be empty.\"": "\"提供商 ID 不能为空。\""
+  },
+  "core/resource-loader.js": {
+    "\"Prompt template path does not exist\"": "\"提示模板路径不存在\"",
+    "\"Skill path does not exist\"": "\"技能路径不存在\"",
+    "\"Theme path does not exist\"": "\"主题路径不存在\""
+  },
+  "core/session-manager.js": {
+    "\"Session id must be non-empty, contain only alphanumeric characters, '-', '_', and '.', and start and end with an alphanumeric character\"": "\"会话 ID 不能为空，只能包含字母数字字符、'-'、'_' 和 '.'，并且必须以字母数字字符开头和结尾\""
+  },
+  "core/provider-composer.js": {
+    "\"Enter API key\"": "\"输入 API 密钥\"",
+    "\"Paste the authorization code\"": "\"粘贴授权代码\""
+  },
+  "core/auth-guidance.js": {
+    "\"Use /login to log into a provider via OAuth or API key. See:\"": "\"使用 /login 通过 OAuth 或 API 密钥登录提供商。参见：\""
+  },
+  "core/tools/edit-diff.js": {
+    "\"Replacement range is outside the base content.\"": "\"替换范围超出基础内容。\"",
+    "\"Cannot preserve unchanged lines because the base content has a different line count.\"": "\"无法保留未更改的行，因为基础内容的行数不同。\""
+  },
+  "core/tools/edit.js": {
+    "\"Edit tool input is invalid. edits must contain at least one replacement.\"": "\"编辑工具输入无效。edits 必须至少包含一个替换。\""
+  },
+  "core/tools/output-accumulator.js": {
+    "\"Cannot append to a finished output accumulator\"": "\"无法追加到已完成的输出累加器\""
+  },
+  "core/tools/grep.js": {
+    "\"No matches found\"": "\"未找到匹配\""
+  },
+  "modes/rpc/rpc-mode.js": {
+    "\"Cannot clone session: no current entry selected\"": "\"无法克隆会话：未选择当前条目\"",
+    "\"Session name cannot be empty\"": "\"会话名称不能为空\"",
+    "\"Theme switching not supported in RPC mode\"": "\"RPC 模式不支持切换主题\""
+  },
+  "modes/rpc/rpc-client.js": {
+    "\"Client already started\"": "\"客户端已启动\"",
+    "\"Client not started\"": "\"客户端未启动\""
+  },
+  "extensions/llama/ui.js": {
+    "\"Download model…\"": "\"下载模型…\"",
+    "\"Download model\"": "\"下载模型\"",
+    "\"Hugging Face owner/repository[:quant]\"": "\"Hugging Face 所有者/仓库[:quant]\"",
+    "\"Loading…\"": "\"加载中…\"",
+    "\"Model name or owner/repository[:quant]\"": "\"模型名称或所有者/仓库[:quant]\""
+  },
+  "extensions/llama/index.js": {
+    "\"Keep loaded and load\"": "\"保留已加载模型并加载新模型\"",
+    "\"Loading model details\"": "\"正在加载模型详情\"",
+    "\"Manual approval is required\"": "\"需要手动批准\"",
+    "\"Restoring previously loaded models\"": "\"正在恢复之前加载的模型\"",
+    "\"Starting…\"": "\"启动中…\"",
+    "\"Stop loading?\"": "\"停止加载？\"",
+    "\"Unload model?\"": "\"卸载模型？\"",
+    "\"Loading model\"": "\"正在加载模型\""
+  },
+  "extensions/llama/client.js": {
+    "\"Server is not running in llama.cpp router mode\"": "\"服务器未以 llama.cpp 路由器模式运行\"",
+    "\"Server URL must use http or https\"": "\"服务器 URL 必须使用 http 或 https\"",
+    "\"Download failed\"": "\"下载失败\""
+  },
+  "utils/clipboard.js": {
+    "\"Failed to copy to clipboard\"": "\"复制到剪贴板失败\""
+  },
+  "utils/image-resize-worker.js": {
+    "\"Invalid image resize worker request\"": "\"无效的图片缩放工作请求\""
+  },
+  "utils/image-resize.js": {
+    "\"Invalid image resize worker response\"": "\"无效的图片缩放工作响应\""
+  },
+  "package-manager-cli.js": {
+    "\"Unknown package command error\"": "\"未知的包命令错误\""
+  },
+  "core/tools/bash.js": {
+    "\"Invalid timeout: must be a finite number of seconds\"": "\"无效的超时时间：必须是有限的秒数\""
+  }
+}
