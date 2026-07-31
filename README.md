@@ -33,7 +33,7 @@ Pi 官方目前没有 i18n / 本地化机制（主题只能改颜色，不能改
 
 ```
 pi-zh-patch/
-├── patch.js                  # 补丁应用脚本（自动探测 Pi 目录、自动汉化 --help、幂等可重复运行）
+├── patch.js                  # 补丁应用脚本（自动探测 Pi 目录、自动备份/恢复、自动汉化 --help、幂等）
 ├── translate-cli-help.js     # 汉化 cli/args.js 的 --help 大文本（由 patch.js 自动调用，也可独立运行）
 ├── find-dist.js              # Pi 安装目录自动探测模块（支持 PI_DIST 环境变量覆盖）
 ├── help-zh.txt               # --help 的中文文本（translate-cli-help.js 使用）
@@ -48,6 +48,12 @@ pi-zh-patch/
 ├── map-9-export-html.json    # HTML 导出模板
 ├── map-10-misc.json          # 其余遗漏项
 └── extract.js                # 字符串提取工具（开发者用）
+
+## 🔄 备份与恢复
+
+- 应用补丁时自动备份被修改文件的英文原文到 `backup/`（保留目录结构，首次备份后不再覆盖）
+- `node patch.js --restore` 一键还原英文原文，并自动做语法校验
+- `backup/` 已加入 `.gitignore`，不会提交到仓库
 ```
 
 ## 🚀 使用方法
@@ -88,9 +94,24 @@ PI_DIST=/path/to/@earendil-works/pi-coding-agent/dist node patch.js map-*.json
 
 重启 `pi` 后即可看到中文界面。
 
-### 3. Pi 升级后重新打补丁
+### 3. 恢复到英文原文
+
+补丁在应用前会**自动备份**原始文件到 `backup/` 目录，随时可一键还原英文：
+
+```bash
+node patch.js --restore
+```
+
+恢复后备份仍保留，再次运行 `node patch.js map-*.json` 即可重新汉化。
+
+> 注意：备份功能自本版本起生效。如果你是在此之前汉化的（无 `backup/` 目录），
+> 执行 `--restore` 会提示无备份，此时可用 `pi update` 重新安装 Pi 还原官方英文版。
+
+### 4. Pi 升级后重新打补丁
 
 Pi 升级（`pi update`）会覆盖 `dist` 目录导致汉化失效，重新运行 `node patch.js map-*.json` 即可恢复。
+
+> 可选参数：`--no-backup` 跳过备份（已有备份时不建议使用）；`--restore` 恢复英文。
 
 ## ⚠️ 注意事项
 
