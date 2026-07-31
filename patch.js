@@ -1,10 +1,11 @@
-// pi 汉化补丁脚本：应用 map-*.json 到 dist 下的 JS 文件
+// pi 汉化补丁脚本：应用 map-*.json 到 dist 下的 JS 文件，并自动汉化 --help 大文本
 // 用法: node patch.js map-*.json
 // 会自动探测 Pi 安装目录；也可设置环境变量 PI_DIST 指定
 const fs = require("fs");
 const path = require("path");
 const { execFileSync } = require("child_process");
 const findPiDist = require("./find-dist.js");
+const { translateCliHelp } = require("./translate-cli-help.js");
 
 const DIST = findPiDist();
 if (!DIST) {
@@ -86,6 +87,14 @@ for (const f of allFiles) {
 }
 console.log(`语法检查完成，错误: ${syntaxErrors}`);
 console.log(`总替换次数: ${totalReplacements}`);
+
+// 汉化 --help 大文本（printHelp）
+try {
+  const changed = translateCliHelp(DIST);
+  console.log(changed ? "printHelp 已汉化" : "printHelp 已汉化过，跳过。");
+} catch (e) {
+  console.error("printHelp 汉化失败:", e.message);
+}
 if (missed.length > 0) {
   console.log(`\n=== 未命中的映射 (${missed.length}) ===`);
   const uniq = new Map();

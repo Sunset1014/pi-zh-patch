@@ -33,8 +33,8 @@ Pi 官方目前没有 i18n / 本地化机制（主题只能改颜色，不能改
 
 ```
 pi-zh-patch/
-├── patch.js                  # 补丁应用脚本（自动探测 Pi 目录，幂等可重复运行）
-├── translate-cli-help.js     # 汉化 cli/args.js 的 --help 大文本（自动探测，幂等）
+├── patch.js                  # 补丁应用脚本（自动探测 Pi 目录、自动汉化 --help、幂等可重复运行）
+├── translate-cli-help.js     # 汉化 cli/args.js 的 --help 大文本（由 patch.js 自动调用，也可独立运行）
 ├── find-dist.js              # Pi 安装目录自动探测模块（支持 PI_DIST 环境变量覆盖）
 ├── help-zh.txt               # --help 的中文文本（translate-cli-help.js 使用）
 ├── map-1-settings.json       # 设置界面（settings/thinking/theme/show-images/first-time-setup）
@@ -57,10 +57,13 @@ pi-zh-patch/
 ```bash
 cd pi-zh-patch
 node patch.js map-*.json
-node translate-cli-help.js
 ```
 
-补丁会**自动探测** Pi 的安装目录（`dist`），无需手动修改路径。探测优先级：
+一条命令完成全部工作：
+- 自动探测 Pi 安装目录（`dist`），无需手动修改路径
+- 应用全部翻译映射（设置/选择器/帮助表格/命令描述/错误消息等）
+- 自动汉化 `pi --help` 大文本（printHelp）
+- 对全部 JS 文件执行 `node --check` 语法校验
 
 1. 环境变量 `PI_DIST`（显式指定，最灵活）
 2. `npm root -g` 下的 `@earendil-works/pi-coding-agent/dist`（Windows 的 pi-node 与 Linux/macOS 全局安装均适用）
@@ -79,13 +82,15 @@ node patch.js map-*.json
 PI_DIST=/path/to/@earendil-works/pi-coding-agent/dist node patch.js map-*.json
 ```
 
+> `translate-cli-help.js` 仍可独立运行（`node translate-cli-help.js`），但通常无需单独执行，`patch.js` 会自动调用。
+
 ### 2. 重新启动 Pi
 
 重启 `pi` 后即可看到中文界面。
 
 ### 3. Pi 升级后重新打补丁
 
-Pi 升级（`pi update`）会覆盖 `dist` 目录导致汉化失效，重新运行上述两条命令即可恢复。
+Pi 升级（`pi update`）会覆盖 `dist` 目录导致汉化失效，重新运行 `node patch.js map-*.json` 即可恢复。
 
 ## ⚠️ 注意事项
 
