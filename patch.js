@@ -1,10 +1,17 @@
 // pi 汉化补丁脚本：应用 map-*.json 到 dist 下的 JS 文件
 // 用法: node patch.js map-*.json
+// 会自动探测 Pi 安装目录；也可设置环境变量 PI_DIST 指定
 const fs = require("fs");
 const path = require("path");
 const { execFileSync } = require("child_process");
+const findPiDist = require("./find-dist.js");
 
-const DIST = "C:/Users/Eternity/AppData/Local/pi-node/current/node_modules/@earendil-works/pi-coding-agent/dist";
+const DIST = findPiDist();
+if (!DIST) {
+  console.error("未找到 Pi 安装目录。请设置环境变量 PI_DIST 指向 pi 的 dist 目录后重试。");
+  process.exit(1);
+}
+console.log("Pi dist 目录:", DIST);
 const mapFiles = process.argv.slice(2);
 if (mapFiles.length === 0) {
   console.error("用法: node patch.js <map1.json> [map2.json ...]");

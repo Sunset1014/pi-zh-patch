@@ -33,8 +33,9 @@ Pi 官方目前没有 i18n / 本地化机制（主题只能改颜色，不能改
 
 ```
 pi-zh-patch/
-├── patch.js                  # 补丁应用脚本（幂等，可重复运行）
-├── translate-cli-help.js     # 汉化 cli/args.js 的 --help 大文本
+├── patch.js                  # 补丁应用脚本（自动探测 Pi 目录，幂等可重复运行）
+├── translate-cli-help.js     # 汉化 cli/args.js 的 --help 大文本（自动探测，幂等）
+├── find-dist.js              # Pi 安装目录自动探测模块（支持 PI_DIST 环境变量覆盖）
 ├── help-zh.txt               # --help 的中文文本（translate-cli-help.js 使用）
 ├── map-1-settings.json       # 设置界面（settings/thinking/theme/show-images/first-time-setup）
 ├── map-2-selectors.json      # 选择器（tree/session/config/model/scoped-models/trust/oauth/login 等）
@@ -59,14 +60,24 @@ node patch.js map-*.json
 node translate-cli-help.js
 ```
 
-补丁会直接修改 Pi 安装目录下的 JS 文件：
+补丁会**自动探测** Pi 的安装目录（`dist`），无需手动修改路径。探测优先级：
 
-```
-C:\Users\<用户名>\AppData\Local\pi-node\current\node_modules\@earendil-works\pi-coding-agent\dist\
-```
+1. 环境变量 `PI_DIST`（显式指定，最灵活）
+2. `npm root -g` 下的 `@earendil-works/pi-coding-agent/dist`（Windows 的 pi-node 与 Linux/macOS 全局安装均适用）
+3. Windows：`%LOCALAPPDATA%\pi-node\current\node_modules\...`
+4. 从 `where pi` / `which pi` 定位的可执行文件向上查找
+5. `require.resolve` 解析
 
-> macOS / Linux 用户请自行修改 `patch.js` 和 `translate-cli-help.js` 顶部的 `DIST` 路径
-> （`which pi` 可查看安装位置，通常为 `/usr/local/lib/node_modules/@earendil-works/pi-coding-agent/dist`）。
+如果自动探测失败（例如自定义安装目录），设置环境变量即可：
+
+```bash
+# Windows (PowerShell)
+$env:PI_DIST = "D:\path\to\@earendil-works\pi-coding-agent\dist"
+node patch.js map-*.json
+
+# macOS / Linux
+PI_DIST=/path/to/@earendil-works/pi-coding-agent/dist node patch.js map-*.json
+```
 
 ### 2. 重新启动 Pi
 
